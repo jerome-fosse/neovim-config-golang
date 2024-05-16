@@ -7,6 +7,7 @@ nvim_tree.setup({
 	sort_by = "case_sensitive",
 	view = {
 		width = 30,
+    preserve_window_proportions = true,
 	},
 	modified = {
 		enable = true,
@@ -23,6 +24,7 @@ nvim_tree.setup({
 	},
 	filters = {
 		dotfiles = false,
+    git_ignored = false,
 	},
 	tab = {
 		sync = {
@@ -35,5 +37,3 @@ nvim_tree.setup({
 local keymap = vim.api.nvim_set_keymap
 
 keymap('n', '<Leader>tff', [[:NvimTreeFindFile<CR>]], {silent = true})
-keymap('i', '<Leader>tff', [[:NvimTreeFindFile<CR>]], {silent = true})
-keymap('v', '<Leader>tff', [[:NvimTreeFindFile<CR>]], {silent = true})

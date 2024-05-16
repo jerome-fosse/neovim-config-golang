@@ -88,7 +88,6 @@ return require('packer').startup(function(use)
   use "neovim/nvim-lspconfig"                     -- enable LSP
   use "williamboman/mason.nvim"                   -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim"         -- Mason & lspconfig integration
-  -- use 'mfussenegger/nvim-jdtls'                   -- Java LSP. I don't use mason for this one
   use "onsails/lspkind.nvim"                      -- same icons as vs-code 
   use {
     'linrongbin16/lsp-progress.nvim',
