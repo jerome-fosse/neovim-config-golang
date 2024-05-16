@@ -14,6 +14,7 @@ nvim_tree.setup({
 		show_on_open_dirs = false,
 	},
 	renderer = {
+    symlink_destination = false,
 		group_empty = true,
 		highlight_modified = "name",
 		icons = {
