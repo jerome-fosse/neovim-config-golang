@@ -13,7 +13,6 @@ require("neotest").setup({
 
 
 local keymap = vim.api.nvim_set_keymap
-local neotest = require("neotest")
 local opts = { silent = true }
 
 -- run nearest test
@@ -27,4 +26,6 @@ keymap('n', '<leader>tR', ':lua require("neotest").run.run(vim.loop.cwd())<CR>',
 -- output open
 keymap('n', '<leader>to', ':lua require("neotest").output.open({ enter = false, auto_close = true })<CR>', opts)
 keymap('n', '<leader>tO', ':lua require("neotest").output_panel.toggle()<CR>', opts)
-
+-- Jump to tests
+keymap('n', '<leader>tn', [[:Neotest jump next<CR>]], opts)
+keymap('n', '<leader>tp', [[:Neotest jump prev<CR>]], opts)

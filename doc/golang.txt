@@ -12,30 +12,49 @@
                                               /____/                 
 
 ==============================================================================
+0. Général
+
+<Leader>q     Quitter Neovim
+<Leader>Q     Quitter Neovim en sauvegardant
+
 1. Fenêtres                                                   *golang.windows*
 
-<S-Left>     Aller à la fenêtre de gauche
-<S-Right>    Aller à la fenêtre de droite
-<S-Up>       Aller à la fenêtre du haut 
-<S-Down>     Aller à la fenêtre du bas
+<S-Left>      Aller à la fenêtre de gauche
+<S-Right>     Aller à la fenêtre de droite
+<S-Up>        Aller à la fenêtre du haut 
+<S-Down>      Aller à la fenêtre du bas
 
-<A-Left>     Onglet précédent
-<A-Right>    Onglet suivant
+<S-A-Left>    Redimensionner la fenêtre sur la gauche
+<S-A-Right>   Redimensionner la fenêtre sur la droite
+<S-A-Up>      Redimensionner la fenêtre sur le haut
+<S-A-Down>    Redimensionner la fenêtre sur le bas
 
-<S-A-Left>   Redimensionner la fenêtre sur la gauche
-<S-A-Right>  Redimensionner la fenêtre sur la droite
-<S-A-Up>     Redimensionner la fenêtre sur le haut
-<S-A-Down>   Redimensionner la fenêtre sur le bas
+<A-Left>      Onglet précédent
+<A-Right>     Onglet suivant
+<Leader>c     Fermer l'onglet courant
+<Leader>1     Aller à l'onglet 1
+<Leader>2     Aller à l'onglet 2
+<Leader>3     Aller à l'onglet 3
+<Leader>4     Aller à l'onglet 4
+<Leader>5     Aller à l'onglet 5
+<Leader>6     Aller à l'onglet 6
+<Leader>7     Aller à l'onglet 7
+<Leader>8     Aller à l'onglet 8
+<Leader>9     Aller à l'onglet 9
 
 2. Outils                                                       *golang.tools*
-<A-1>        Arborescence
-<A-2>        Symboles
-<A-3>        Test Suite
+
+<A-1>         Arborescence
+<A-2>         Symboles
+<A-3>         Test Suite
 
 3. Tests                                                        *golang.tests*
-<Leader>tr   Executer le test le plus proche
-<Leader>tr   Executer tous les tests
-<Leader>tf   Executer tous les tests du fichier
-<Leader>to   Afficher l'output du test le plus proche
-<Leader>tO   Afficher l'output de tous les tests executés
-<Leader>ts   Stopper l'execution des tests
+
+<Leader>tr    Executer le test le plus proche
+<Leader>tr    Executer tous les tests
+<Leader>tf    Executer tous les tests du fichier
+<Leader>to    Afficher l'output du test le plus proche
+<Leader>tO    Afficher l'output de tous les tests executés
+<Leader>ts    Stopper l'execution des tests
+<Leader>tn    Aller au test suivant
+<Leader>tp    Aller au test précédent
