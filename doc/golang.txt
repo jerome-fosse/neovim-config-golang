@@ -1,0 +1,41 @@
+*golang.txt* *golang*
+
+           ________               __     _____ __              __ 
+          / ____/ /_  ___  ____ _/ /_   / ___// /_  ___  ___  / /_
+         / /   / __ \/ _ \/ __  / __/   \__ \/ __ \/ _ \/ _ \/ __/
+        / /___/ / / /  __/ /_/ / /_    ___/ / / / /  __/  __/ /_  
+        \____/_/ /_/\___/\__,_/\__/   /____/_/ /_/\___/\___/\__/  
+                   / ____/___  / /   ____ _____  ____ _              
+                  / / __/ __ \/ /   / __  / _  \/ __  /              
+                 / /_/ / /_/ / /___/ /_/ / / / / /_/ /               
+                 \____/\____/_____/\__,_/_/ /_/\__, /                
+                                              /____/                 
+
+==============================================================================
+1. Fenêtres                                                   *golang.windows*
+
+<S-Left>     Aller à la fenêtre de gauche
+<S-Right>    Aller à la fenêtre de droite
+<S-Up>       Aller à la fenêtre du haut 
+<S-Down>     Aller à la fenêtre du bas
+
+<A-Left>     Onglet précédent
+<A-Right>    Onglet suivant
+
+<S-A-Left>   Redimensionner la fenêtre sur la gauche
+<S-A-Right>  Redimensionner la fenêtre sur la droite
+<S-A-Up>     Redimensionner la fenêtre sur le haut
+<S-A-Down>   Redimensionner la fenêtre sur le bas
+
+2. Outils                                                       *golang.tools*
+<A-1>        Arborescence
+<A-2>        Symboles
+<A-3>        Test Suite
+
+3. Tests                                                        *golang.tests*
+<Leader>tr   Executer le test le plus proche
+<Leader>tr   Executer tous les tests
+<Leader>tf   Executer tous les tests du fichier
+<Leader>to   Afficher l'output du test le plus proche
+<Leader>tO   Afficher l'output de tous les tests executés
+<Leader>ts   Stopper l'execution des tests
