@@ -10,35 +10,18 @@ end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-local on_attach = function(client, bufnr)
-  local keymap = vim.keymap
+local on_attach = function()
   local opts = { silent = true, buffer = 0 }
 
-  -- set keybinds
-  keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-  keymap.set('n', '<space>f', function()
-    vim.lsp.buf.format { async = true }
-  end, opts)
-end
-
-local on_attach_gopls = function()
-  local opts = { silent = true, buffer = 0 }
-
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-  vim.keymap.set("n", "gR", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "gf", vim.lsp.buf.formatting, opts)
-  vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "en", vim.diagnostic.goto_next, opts)
-  vim.keymap.set("n", "ep", vim.diagnostic.goto_prev, opts)
+  vim.keymap.set("n", "<Leader>k", vim.lsp.buf.hover, opts)
+  -- vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
+  vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
+  -- vim.keymap.set("n", "<Leader>gt", vim.lsp.buf.type_definition, opts)
+  vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
+  vim.keymap.set("n", "<Leader>gR", vim.lsp.buf.references, opts)
+  vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.rename, opts)
+  vim.keymap.set("n", "<Leader>gf", vim.lsp.buf.format, opts)
+  -- vim.keymap.set("n", "<Leader>ga", vim.lsp.buf.code_action, opts)
 end
 
 lspconfig.lua_ls.setup {
@@ -54,7 +37,7 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.gopls.setup {
-  on_attach = on_attach_gopls,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = {"gopls"},
   filetypes = { "go", "gomod", "gowork", "gotmpl" },

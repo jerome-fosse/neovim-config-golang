@@ -12,12 +12,18 @@
                                               /____/                 
 
 ==============================================================================
-0. Général
+1. Général
 
 <Leader>q     Quitter Neovim
 <Leader>Q     Quitter Neovim en sauvegardant
 
-1. Fenêtres                                                   *golang.windows*
+2. Outils                                                       *golang.tools*
+
+<A-1>         Arborescence
+<A-2>         Symboles
+<A-3>         Test Suite
+
+3. Fenêtres                                                   *golang.windows*
 
 <S-Left>      Aller à la fenêtre de gauche
 <S-Right>     Aller à la fenêtre de droite
@@ -42,13 +48,16 @@
 <Leader>8     Aller à l'onglet 8
 <Leader>9     Aller à l'onglet 9
 
-2. Outils                                                       *golang.tools*
+4. LSP                                                            *golang.lsp*
 
-<A-1>         Arborescence
-<A-2>         Symboles
-<A-3>         Test Suite
+<Leader>k     Afficher la documetation
+<Leader>gd    Aller à la définition
+<Leader>gi    Afficher les implémentaions
+<Leader>gR    Afficher les références
+<Leader>gr    Renomage intelligent   
+<Leader>gf    Formattage
 
-3. Tests                                                        *golang.tests*
+5. Tests                                                        *golang.tests*
 
 <Leader>tr    Executer le test le plus proche
 <Leader>tr    Executer tous les tests
