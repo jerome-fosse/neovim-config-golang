@@ -44,7 +44,6 @@ return require('packer').startup(function(use)
 		'akinsho/bufferline.nvim',
 		tag = "*", requires = 'nvim-tree/nvim-web-devicons'
 	}
-	use 'lukas-reineke/indent-blankline.nvim'
 	use 'rcarriga/nvim-notify'
 	vim.notify = require("notify")
   use 'zaldih/themery.nvim'
