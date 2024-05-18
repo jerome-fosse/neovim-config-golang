@@ -57,9 +57,6 @@ return require('packer').startup(function(use)
   use 'echasnovski/mini.move'
 	use "windwp/nvim-autopairs"
 	use 'RRethy/vim-illuminate'
-	require("illuminate").configure({
-		delay = 2000,
-	})
 
     -- Syntax Highlighting
   use {
