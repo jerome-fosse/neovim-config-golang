@@ -13,8 +13,8 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 local on_attach = function()
   local opts = { silent = true, buffer = 0 }
 
-  vim.keymap.set("n", "<Leader>k", vim.lsp.buf.hover, opts)
-  -- vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
+  vim.keymap.set("n", "<Leader>K", vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
   vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
   -- vim.keymap.set("n", "<Leader>gt", vim.lsp.buf.type_definition, opts)
   vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
@@ -37,8 +37,8 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.gopls.setup {
-  on_attach = on_attach,
   capabilities = capabilities,
+  on_attach = on_attach,
   cmd = {"gopls"},
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   settings = {
