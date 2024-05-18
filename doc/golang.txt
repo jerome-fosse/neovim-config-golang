@@ -48,7 +48,7 @@
 <Leader>8     Aller à l'onglet 8
 <Leader>9     Aller à l'onglet 9
 
-4. LSP                                                            *golang.lsp*
+4. LSP & Complétion                                               *golang.lsp*
 
 <Leader>k     Afficher la documetation
 <Leader>gd    Aller à la définition
@@ -56,6 +56,12 @@
 <Leader>gR    Afficher les références
 <Leader>gr    Renomage intelligent   
 <Leader>gf    Formattage
+
+<C-Space>     Activer la complétion
+<C-e>         Annuler la complétion
+<CR>          Valider la complétion
+<C-j>         Scroller la doc vers le bas
+<C-k>         Scroller la doc vers le haut
 
 5. Tests                                                        *golang.tests*
 
