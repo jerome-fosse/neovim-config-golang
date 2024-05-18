@@ -38,7 +38,8 @@ require("lazy").setup({
   },
 	{
     "akinsho/bufferline.nvim",
-    version = "*",
+    branch = "main",
+    --version = "*",
     dependencies = "nvim-tree/nvim-web-devicons"
   },
 	"rcarriga/nvim-notify",
