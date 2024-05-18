@@ -1,107 +1,87 @@
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-		vim.cmd [[packadd packer.nvim]]
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer = ensure_packer()
-
-return require('packer').startup(function(use)
-	use "wbthomason/packer.nvim"
-
-	-- add your plugins here...
-
+require("lazy").setup({
 	-- Various themes --
-	use "rebelot/kanagawa.nvim"
-	use 'shaunsingh/nord.nvim'
-	use "rmehri01/onenord.nvim"
-	use "EdenEast/nightfox.nvim"
-  use 'Mofiqul/dracula.nvim'
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use 'tanvirtin/monokai.nvim'
-  use 'AlexvZyl/nordic.nvim'
+	"rebelot/kanagawa.nvim",
+	"shaunsingh/nord.nvim",
+	"rmehri01/onenord.nvim",
+	"EdenEast/nightfox.nvim",
+  "Mofiqul/dracula.nvim",
+  {
+    "catppuccin/nvim",
+    name = "catppuccin"
+  },
+  "tanvirtin/monokai.nvim",
+  "AlexvZyl/nordic.nvim",
 	-- End themes     --
-
-	use "nvim-tree/nvim-web-devicons"
-	use 'nvim-lua/plenary.nvim'
-
+	"nvim-tree/nvim-web-devicons",
+	"nvim-lua/plenary.nvim",
   -- UI Improvments
-  use "nvim-tree/nvim-tree.lua"
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-      'linrongbin16/lsp-progress.nvim',
-      opt = true
+  "nvim-tree/nvim-tree.lua",
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+--      "linrongbin16/lsp-progress.nvim"
     }
-  }
-	use {
-		'akinsho/bufferline.nvim',
-		tag = "*", requires = 'nvim-tree/nvim-web-devicons'
-	}
-	use 'rcarriga/nvim-notify'
-	vim.notify = require("notify")
-  use 'zaldih/themery.nvim'
-
+  },
+	{
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons"
+  },
+	"rcarriga/nvim-notify",
+  "zaldih/themery.nvim",
   -- Fuzzy Find 
-	use {
-		'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }
-	}
-  use 'nvim-telescope/telescope-symbols.nvim'
-  use 'echasnovski/mini.move'
-	use "windwp/nvim-autopairs"
-  use 'RRethy/vim-illuminate'
-
+	{
+		"nvim-telescope/telescope.nvim",
+    dependencies = "nvim-lua/plenary.nvim"
+	},
+  "nvim-telescope/telescope-symbols.nvim",
+  "echasnovski/mini.move",
+	"windwp/nvim-autopairs",
+  "RRethy/vim-illuminate",
   -- Syntax Highlighting
-  use {
+  {
     "nvim-treesitter/nvim-treesitter",
-    run = function()
+    build = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
-    end,
-  }
-  use 'windwp/nvim-ts-autotag'
-
-  -- completion plugins
-  use "hrsh7th/nvim-cmp"                          -- The completion plugin
-  use "hrsh7th/cmp-path"                          -- path completions
-  use "hrsh7th/cmp-nvim-lua"                      -- NeoVim completions
-  use "hrsh7th/cmp-nvim-lsp"
-
-  -- snippets
-  use "L3MON4D3/LuaSnip"                          -- snippet engine
-  use "rafamadriz/friendly-snippets"              -- a bunch of snippets to use
-
-  -- LSP
-  use "neovim/nvim-lspconfig"                     -- enable LSP
-  use "williamboman/mason.nvim"                   -- simple to use language server installer
-  use "williamboman/mason-lspconfig.nvim"         -- Mason & lspconfig integration
-  use "onsails/lspkind.nvim"                      -- same icons as vs-code 
-  use {
-    'linrongbin16/lsp-progress.nvim',
-    requires = {'nvim-tree/nvim-web-devicons'},
-    config = function()
-      require('lsp-progress').setup()
     end
-  }
---  use {
---    "jinzhongjia/LspUI.nvim",
---    config=function()
---      require("LspUI").setup({
---        prompt = false,
---      })
---    end
---  }
-
+  },
+  "windwp/nvim-ts-autotag",
+  -- completion plugins
+  "hrsh7th/nvim-cmp",                                 -- The completion plugin
+  "hrsh7th/cmp-path",                                 -- path completions
+  "hrsh7th/cmp-nvim-lua",                             -- NeoVim completions
+  "hrsh7th/cmp-nvim-lsp",
+  -- snippets
+  "L3MON4D3/LuaSnip",                                 -- snippet engine
+  "rafamadriz/friendly-snippets",                     -- a bunch of snippets to use
+  -- LSP
+  "neovim/nvim-lspconfig",                            -- language Server Protocol plugin
+  "williamboman/mason.nvim",                          -- simple to use language server installer
+  "williamboman/mason-lspconfig.nvim",                -- Mason & lspconfig integration
+  "onsails/lspkind.nvim",                             -- same icons as vs-code 
+  {
+    "linrongbin16/lsp-progress.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+  },
   -- Various Dev tools
-  use({
+  {
     "nvim-neotest/neotest",
-    requires = {
+    dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-neotest/neotest-go",
       "nvim-lua/plenary.nvim",
@@ -109,14 +89,10 @@ return require('packer').startup(function(use)
       "nvim-treesitter/nvim-treesitter"
       -- Your other test adapters here
     },
-  })
-  use 'simrat39/symbols-outline.nvim'             -- a Tree View for symbols
-  use 'lewis6991/gitsigns.nvim'
-
+  },
+  "simrat39/symbols-outline.nvim",                    -- a Tree View for symbols
+  "lewis6991/gitsigns.nvim",
   -- Various tools
+})
 
-	if packer then
-		require("packer").sync()
-	end
-end)
-
+vim.notify = require("notify")
