@@ -1,10 +1,8 @@
 require("options")
 require("plugins")
 require("mappings")
-require("themes.nord")
---require("themes.onenord")
---vim.cmd.colorscheme "nordfox"
---vim.cmd.colorscheme "kanagawa-dragon"
+require("theme")
+require("plugins.themery")
 require("plugins.nvim-tree")
 require("plugins.telescope")
 require("plugins.lualine")

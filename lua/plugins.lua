@@ -53,12 +53,11 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }
 	}
   use 'nvim-telescope/telescope-symbols.nvim'
-  use 'windwp/nvim-ts-autotag'
   use 'echasnovski/mini.move'
 	use "windwp/nvim-autopairs"
-	use 'RRethy/vim-illuminate'
+  use 'RRethy/vim-illuminate'
 
-    -- Syntax Highlighting
+  -- Syntax Highlighting
   use {
     "nvim-treesitter/nvim-treesitter",
     run = function()
@@ -66,6 +65,7 @@ return require('packer').startup(function(use)
       ts_update()
     end,
   }
+  use 'windwp/nvim-ts-autotag'
 
   -- completion plugins
   use "hrsh7th/nvim-cmp"                          -- The completion plugin
