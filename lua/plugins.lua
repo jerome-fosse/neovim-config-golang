@@ -89,14 +89,14 @@ return require('packer').startup(function(use)
       require('lsp-progress').setup()
     end
   }
-  use {
-    "jinzhongjia/LspUI.nvim",
-    config=function()
-      require("LspUI").setup({
-        prompt = false,
-      })
-    end
-  }
+--  use {
+--    "jinzhongjia/LspUI.nvim",
+--    config=function()
+--      require("LspUI").setup({
+--        prompt = false,
+--      })
+--    end
+--  }
 
   -- Various Dev tools
   use({
