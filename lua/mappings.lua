@@ -41,4 +41,5 @@ keymap("v", "<C-v>", '"+p', opts)
 keymap('n', '<A-1>', [[:NvimTreeToggle<CR>]], {silent = true}) -- File Explorer : NvimTree
 keymap('n', '<A-2>', [[:SymbolsOutline<CR>]], {silent = true}) -- File Structure : Symbols Outline 
 keymap('n', '<A-3>', [[:lua require("neotest").summary.toggle()<CR>]], {silent = true}) -- File Structure : Symbols Outline 
+keymap('n', '<A-4>', [[:lua require("dapui").toggle()<CR>]], {silent = true}) -- File Structure : Symbols Outline 
 

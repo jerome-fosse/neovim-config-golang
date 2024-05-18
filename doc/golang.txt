@@ -21,7 +21,8 @@
 
 <A-1>         Arborescence
 <A-2>         Symboles
-<A-3>         Test Suite
+<A-3>         Tests
+<A-4>         Debug
 
 3. Fenêtres                                                   *golang.windows*
 
@@ -73,3 +74,5 @@
 <Leader>ts    Stopper l'execution des tests
 <Leader>tn    Aller au test suivant
 <Leader>tp    Aller au test précédent
+
+6. Debug

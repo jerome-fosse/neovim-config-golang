@@ -33,7 +33,7 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
---      "linrongbin16/lsp-progress.nvim"
+      "linrongbin16/lsp-progress.nvim"
     }
   },
 	{
@@ -81,7 +81,7 @@ require("lazy").setup({
   },
   -- Various Dev tools
   {
-    "nvim-neotest/neotest",
+    "nvim-neotest/neotest",                           -- test plugin
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-neotest/neotest-go",
@@ -91,8 +91,19 @@ require("lazy").setup({
       -- Your other test adapters here
     },
   },
+  {
+    "leoluz/nvim-dap-go",                             -- golang debugger
+    dependencies = "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio"
+    }
+  },
   "simrat39/symbols-outline.nvim",                    -- a Tree View for symbols
-  "lewis6991/gitsigns.nvim",
+  "lewis6991/gitsigns.nvim",                          -- git integration
   -- Various tools
 })
 
