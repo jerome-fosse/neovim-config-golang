@@ -15,7 +15,7 @@ if lspconfig_status_ok then
     vim.keymap.set("n", "<Leader>gR", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<Leader>gf", vim.lsp.buf.format, opts)
-    -- vim.keymap.set("n", "<Leader>ga", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<Leader>ga", vim.lsp.buf.code_action, opts)
   end
 
   lspconfig.lua_ls.setup({
