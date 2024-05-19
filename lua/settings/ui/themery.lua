@@ -25,14 +25,14 @@ themery.setup {
       name ="nord",
       colorscheme = "nord",
       before = [[
-        require("themes/nord")
+        require("settings.themes.nord")
       ]],
     },
     {
       name ="onenord",
       colorscheme = "onenord",
       before = [[
-        require("themes/onenord")
+        require("require.themes.onenord")
       ]],
     },
     "monokai",

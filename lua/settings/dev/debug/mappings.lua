@@ -1,25 +1,6 @@
-local neotest_status_ok, _ = pcall(require, "neotest")
 local dap_status_ok, dap = pcall(require, "dap")
-local dapgo_status_ok, _ = pcall(require, "dap-go")
-local keymap = vim.api.nvim_set_keymap
+local dapgo_status_ok, dapgo = pcall(require, "dap-go")
 local opts = { silent = true }
-
-if neotest_status_ok then
-  -- run nearest test
-  keymap('n', '<leader>tr', ':lua require("neotest").run.run()<CR>', opts)
-  -- stop tests
-  keymap('n', '<leader>ts', ':lua require("neotest").run.stop()<CR>', opts)
-  -- run alll tests in the file
-  keymap('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
-  -- run all tests
-  keymap('n', '<leader>tR', ':lua require("neotest").run.run(vim.loop.cwd())<CR>', opts)
-  -- output open
-  keymap('n', '<leader>to', ':lua require("neotest").output.open({ enter = false, auto_close = true })<CR>', opts)
-  keymap('n', '<leader>tO', ':lua require("neotest").output_panel.toggle()<CR>', opts)
-  -- Jump to tests
-  keymap('n', '<leader>tn', [[:Neotest jump next<CR>]], opts)
-  keymap('n', '<leader>tp', [[:Neotest jump prev<CR>]], opts)
-end
 
 if dap_status_ok then
   vim.keymap.set('n', '<F5>', function() dap.continue() end, opts)
@@ -48,6 +29,6 @@ if dap_status_ok then
 end
 
 if dapgo_status_ok then
-  keymap("n", "<Leader>dt", ":lua require('dap-go').debug_test()<CR>", opts)
+  vim.keymap.set("n", "<Leader>dt", function() dapgo.debug_test() end, opts)
 end
 

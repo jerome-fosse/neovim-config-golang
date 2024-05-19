@@ -50,9 +50,6 @@ require("lazy").setup({
     dependencies = "nvim-lua/plenary.nvim"
 	},
   "nvim-telescope/telescope-symbols.nvim",
-  "echasnovski/mini.move",
-	"windwp/nvim-autopairs",
-  "RRethy/vim-illuminate",
   -- Syntax Highlighting
   {
     "nvim-treesitter/nvim-treesitter",
@@ -105,6 +102,9 @@ require("lazy").setup({
   "simrat39/symbols-outline.nvim",                    -- a Tree View for symbols
   "lewis6991/gitsigns.nvim",                          -- git integration
   -- Various tools
+  "echasnovski/mini.move",
+  "windwp/nvim-autopairs",
+  "RRethy/vim-illuminate",
 })
 
 vim.notify = require("notify")

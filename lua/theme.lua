@@ -1,6 +1,6 @@
 -- Themery block
 -- This block will be replaced by Themery.
-require("themes/nord")
+require("settings.themes.nord")
 
 
 vim.cmd("colorscheme nord")

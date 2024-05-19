@@ -10,23 +10,8 @@ end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-local on_attach = function()
-  local opts = { silent = true, buffer = 0 }
-
-  vim.keymap.set("n", "<Leader>K", vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
-  -- vim.keymap.set("n", "<Leader>gt", vim.lsp.buf.type_definition, opts)
-  vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
-  vim.keymap.set("n", "<Leader>gR", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<Leader>gf", vim.lsp.buf.format, opts)
-  -- vim.keymap.set("n", "<Leader>ga", vim.lsp.buf.code_action, opts)
-end
-
 lspconfig.lua_ls.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     Lua = {
       diagnostics = {
@@ -38,7 +23,6 @@ lspconfig.lua_ls.setup {
 
 lspconfig.gopls.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
   cmd = {"gopls"},
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   settings = {
@@ -54,8 +38,8 @@ lspconfig.gopls.setup {
 
 lspconfig.terraformls.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
 }
+
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*.tf", "*.tfvars", "*.go"},
   callback = function()
