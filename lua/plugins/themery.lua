@@ -5,7 +5,6 @@ end
 
 themery.setup {
   themes = {
-    "",
     "catppuccin-latte",
     "catppuccin-frappe",
     "catppuccin-macchiato",

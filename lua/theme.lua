@@ -4,5 +4,5 @@ require("themes/nord")
 
 
 vim.cmd("colorscheme nord")
-vim.g.theme_id = 18
+vim.g.theme_id = 17
 -- end themery block
