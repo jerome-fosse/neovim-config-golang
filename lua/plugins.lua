@@ -9,6 +9,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -18,15 +19,9 @@ require("lazy").setup({
 	"rmehri01/onenord.nvim",
 	"EdenEast/nightfox.nvim",
   "Mofiqul/dracula.nvim",
-  {
-    "catppuccin/nvim",
-    name = "catppuccin"
-  },
+  {"catppuccin/nvim", name = "catppuccin"},
   "tanvirtin/monokai.nvim",
   "AlexvZyl/nordic.nvim",
-	-- End themes     --
-	"nvim-tree/nvim-web-devicons",
-	"nvim-lua/plenary.nvim",
   -- UI Improvments
   "nvim-tree/nvim-tree.lua",
   {
@@ -47,36 +42,44 @@ require("lazy").setup({
   -- Fuzzy Find 
 	{
 		"nvim-telescope/telescope.nvim",
-    dependencies = "nvim-lua/plenary.nvim"
-	},
-  "nvim-telescope/telescope-symbols.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-symbols.nvim",
+    },
+  },
   -- Syntax Highlighting
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = "windwp/nvim-ts-autotag",
     build = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
     end
   },
-  "windwp/nvim-ts-autotag",
   -- completion plugins
-  "hrsh7th/nvim-cmp",                                 -- The completion plugin
-  "hrsh7th/cmp-path",                                 -- path completions
-  "hrsh7th/cmp-nvim-lua",                             -- NeoVim completions
-  "hrsh7th/cmp-nvim-lsp",
-  -- snippets
-  "L3MON4D3/LuaSnip",                                 -- snippet engine
-  "rafamadriz/friendly-snippets",                     -- a bunch of snippets to use
-  -- LSP
-  "neovim/nvim-lspconfig",                            -- language Server Protocol plugin
-  "williamboman/mason.nvim",                          -- simple to use language server installer
-  "williamboman/mason-lspconfig.nvim",                -- Mason & lspconfig integration
-  "onsails/lspkind.nvim",                             -- same icons as vs-code 
   {
-    "linrongbin16/lsp-progress.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    "hrsh7th/nvim-cmp",                               -- The completion plugin
+    dependencies = {
+      "hrsh7th/cmp-path",                             -- path completions
+      "hrsh7th/cmp-nvim-lua",                         -- NeoVim completions
+      "hrsh7th/cmp-nvim-lsp",
+      -- snippets
+      "L3MON4D3/LuaSnip",                             -- snippet engine
+      "rafamadriz/friendly-snippets",                 -- a bunch of snippets to use
+    },
   },
-  -- Various Dev tools
+  -- LSP plugins
+  {
+    "neovim/nvim-lspconfig",                          -- language Server Protocol plugin
+    dependencies = {
+      "williamboman/mason.nvim",                      -- simple to use language server installer
+      "williamboman/mason-lspconfig.nvim",            -- Mason & lspconfig integration
+      "onsails/lspkind.nvim",                         -- same icons as vs-code 
+      "linrongbin16/lsp-progress.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+  -- Tests plugins
   {
     "nvim-neotest/neotest",                           -- test plugin
     dependencies = {
@@ -88,16 +91,15 @@ require("lazy").setup({
       -- Your other test adapters here
     },
   },
+  -- Debug plugins
   {
     "leoluz/nvim-dap-go",                             -- golang debugger
-    dependencies = "mfussenegger/nvim-dap",
-  },
-  {
-    "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+      "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio"
-    }
+    },
   },
   "simrat39/symbols-outline.nvim",                    -- a Tree View for symbols
   "lewis6991/gitsigns.nvim",                          -- git integration

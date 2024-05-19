@@ -56,11 +56,11 @@ This configuration has been tested and works with Neovim `0.10.0`. It could work
 
 ## Installation
 
-1. Remove (and backup if nescessary) any old Neovim configuration you might have in ~/.config/nvim
+1. Remove (and backup if nescessary) any old Neovim configuration you might have in `~/.config/nvim`
 
 2. clone this repository
 ```shell
-git clone https://github.com/jerome-fosse/neovim-config-golang ~/.config/nvim
+git clone https://github.com/jerome-fosse/neovim-config-golang `~/.config/nvim`
 ```
 
 3. Open Neovim
@@ -68,4 +68,4 @@ git clone https://github.com/jerome-fosse/neovim-config-golang ~/.config/nvim
 cd ~/.config/nvim
 nvim .
 ```
-Neovim will automatically download and install Lazy, the package manager, and all the plugins and lsp servers will be installed. This might take a few seconds.
+Neovim will automatically download and install Lazy, the package manager, and all the plugins and lsp servers needed. This might take a few seconds the first time.
