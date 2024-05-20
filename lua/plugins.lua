@@ -79,6 +79,13 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
     },
   },
+--  {
+--    'nvimdev/lspsaga.nvim',                           -- A better UI for LSP functions 
+--    dependencies = {
+--      'nvim-treesitter/nvim-treesitter',
+--      'nvim-tree/nvim-web-devicons',
+--    }
+--  },
   -- Tests plugins
   {
     "nvim-neotest/neotest",                           -- test plugin

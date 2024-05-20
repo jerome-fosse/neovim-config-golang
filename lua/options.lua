@@ -14,6 +14,7 @@ vim.opt.number = true                         -- show line numbers
 vim.opt.shiftwidth = 2                        -- size of indentation
 vim.opt.showcmd = true
 vim.opt.showmode = false
+vim.opt.signcolumn ="yes"
 vim.opt.tabstop = 2                           -- the number of space a tab insert
 vim.opt.termguicolors = true                  -- set termguicolors to enable highlight groups
 vim.opt.wildmenu = true
