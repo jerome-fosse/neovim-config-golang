@@ -4,18 +4,18 @@ if not lspconfig_status_ok then
 end
 
 if lspconfig_status_ok then
-  local opts = { silent = true, buffer = 0 }
+  local utils = require("utils")
 
   local on_attach = function()
-    vim.keymap.set("n", "<Leader>K", vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
-    -- vim.keymap.set("n", "<Leader>gt", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "<Leader>gR", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<Leader>gf", vim.lsp.buf.format, opts)
-    vim.keymap.set("n", "<Leader>ga", vim.lsp.buf.code_action, opts)
+    utils.kmap("n", "<Leader>k", vim.lsp.buf.hover, ':LSP - Help')
+    utils.kmap('n', '<Leader>K', vim.lsp.buf.signature_help, ':LSP - Signature Help')
+    utils.kmap("n", "<Leader>gd", vim.lsp.buf.definition, ':LSP - Goto Definition')
+    -- utils.kmap("n", "<Leader>gt", vim.lsp.buf.type_definition, ':LSP - ')
+    utils.kmap("n", "<Leader>gi", vim.lsp.buf.implementation, ':LSP - Goto Implementation')
+    utils.kmap("n", "<Leader>gR", vim.lsp.buf.references, ':LSP - Goto References')
+    utils.kmap("n", "<Leader>gr", vim.lsp.buf.rename, ':LSP - Rename')
+    utils.kmap("n", "<Leader>gf", vim.lsp.buf.format, ':LSP - Format')
+    utils.kmap("n", "<Leader>ga", vim.lsp.buf.code_action, ':LSP - Code Actions')
   end
 
   lspconfig.lua_ls.setup({

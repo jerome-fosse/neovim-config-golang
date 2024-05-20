@@ -35,6 +35,5 @@ nvim_tree.setup({
 	},
 })
 
-local keymap = vim.api.nvim_set_keymap
-
-keymap('n', '<Leader>tff', [[:NvimTreeFindFile<CR>]], {silent = true})
+local utils = require("utils")
+utils.kmap('n', '<Leader>tff', [[:NvimTreeFindFile<CR>]], ':TREE Find File in Explorer')

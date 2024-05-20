@@ -1,34 +1,23 @@
 local dap_status_ok, dap = pcall(require, "dap")
-local dapgo_status_ok, dapgo = pcall(require, "dap-go")
-local opts = { silent = true }
+local dapui_status_ok, dapui = pcall(require, "dapui")
+local utils = require("utils")
 
-if dap_status_ok then
-  vim.keymap.set('n', '<F5>', function() dap.continue() end, opts)
-  vim.keymap.set('n', '<F10>', function() dap.step_over() end, opts)
-  vim.keymap.set('n', '<F11>', function() dap.step_into() end, opts)
-  vim.keymap.set('n', '<F12>', function() dap.step_out() end, opts)
-  vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end, opts)
-  vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint() end, opts)
-  vim.keymap.set('n', '<Leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, opts)
-  vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, opts)
-  vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, opts)
-  vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
-    require('dap.ui.widgets').hover()
-  end, opts)
-  vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
-    require('dap.ui.widgets').preview()
-  end, opts)
-  vim.keymap.set('n', '<Leader>df', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.frames)
-  end, opts)
-  vim.keymap.set('n', '<Leader>ds', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.scopes)
-  end, opts)
+if not dap_status_ok then
+  return
 end
 
-if dapgo_status_ok then
-  vim.keymap.set("n", "<Leader>dt", function() dapgo.debug_test() end, opts)
+utils.kmap('n', '<F5>', dap.continue, ':DEBUG - Start/Continue')
+utils.kmap('n', '<F6>', dap.step_over, ':DEBUG - Step over')
+utils.kmap('n', '<F7>', dap.step_into, ':DEBUG - Step into')
+utils.kmap('n', '<F8>', dap.step_out, ':DEBUG - Step out')
+utils.kmap('n', '<Leader>b', dap.toggle_breakpoint, ':DEBUG - Toggle breakpoint')
+utils.kmap('n', '<Leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, ':DEBUG - Log Point message')
+utils.kmap('n', '<Leader>dr', dap.repl.open, ':DEBUG - Open REPL')
+utils.kmap('n', '<Leader>dl', dap.run_last, ':DEBUG - Run last')
+
+if dapui_status_ok then
+  for _, v in pairs({[1] = 'n', [2] = 'v'}) do
+    utils.kmap(v, '<Leader>de', dapui.eval, ':DEBUG - Evaluate')
+  end
 end
 

@@ -1,45 +1,36 @@
-local keymap = vim.api.nvim_set_keymap
-
-local opts = { silent = true }
+local utils = require("utils")
 
 --          NORMAL MODE          --          
-keymap("n", "<Leader>q", ":qa<CR>", opts)
---keymap("n", "<Leader>qq", ":qa!<CR>", opts)
-keymap("n", "<Leader>Q", ":wqa<CR>", opts)
-keymap("n", "<Leader>s", ":w<CR>", opts)
-keymap("n", "<Leader>S", ":wa<CR>", opts)
-keymap("n", "<Leader><Space>", ":lua require('utils.popup-menu').ShowMenu({'Compile', 'Run', 'Debug'})<CR>", opts)
+utils.kmap("n", "<Leader>q", [[:qa<CR>]], ':GEN - Quit')
+--utils.kmap("n", "<Leader>qq", ":qa!<CR>", ':GEN - ')
+utils.kmap("n", "<Leader>Q", [[:wqa<CR>]], ':GEN - Save & Quit')
+utils.kmap("n", "<Leader>s", [[:w<CR>]], ':GEN - Save')
+utils.kmap("n", "<Leader>S", [[:wa<CR>]], ':GEN - Save All')
 
 -- Windows navigation -- 
-keymap("n", "<S-left>", "<C-w><left>", opts)
-keymap("n", "<S-up>", "<C-w><up>", opts)
-keymap("n", "<S-down>", "<C-w><down>", opts)
-keymap("n", "<S-right>", "<C-w><right>", opts)
+utils.kmap("n", "<S-left>", [[ <C-w><left> ]], ':GEN - Go To Left Window')
+utils.kmap("n", "<S-up>", [[ <C-w><up> ]], ':GEN - Go To Top Window')
+utils.kmap("n", "<S-down>", [[ <C-w><down> ]], ':GEN - Go To Bottom Window')
+utils.kmap("n", "<S-right>", [[ <C-w><right> ]], ':GEN - Go To Right Window')
 
 -- Windows resizing --
-keymap("n", "<A-S-Up>", ":resize -3<CR>", opts)
-keymap("n", "<A-S-Down>", ":resize +2<CR>", opts)
-keymap("n", "<A-S-Right>", ":vertical resize +2<CR>", opts)
-keymap("n", "<A-S-Left>", ":vertical resize -2<CR>", opts)
-
--- Copy/paste
--- keymap("n", "<C-c>", '"+y', opts)
--- keymap("v", "<C-c>", '"+y', opts)
--- keymap("n", "<C-v>", '"+p', opts)
--- keymap("v", "<C-v>", '"+p', opts)
+utils.kmap("n", "<A-S-Up>", [[:resize -3<CR>]], ':GEN - Resize window to the top')
+utils.kmap("n", "<A-S-Down>", [[:resize +2<CR>]], ':GEN - Resize window to the bottom')
+utils.kmap("n", "<A-S-Right>", [[:vertical resize +2<CR>]], ':GEN - Resize window to the right')
+utils.kmap("n", "<A-S-Left>", [[:vertical resize -2<CR>]], ':GEN - Resize Window the left')
 
 --          VISUAL MODE          --          
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+utils.kmap("v", "<", [[<gv]], ':GEN - Ident to the left')
+utils.kmap("v", ">", [[>gv]], ':GEN - Ident to the right')
 
 -- Copy/paste
-keymap("v", "<C-c>", '"+y', opts)
-keymap("v", "<C-v>", '"+p', opts)
+utils.kmap("v", "<C-c>", [["+y']], ':GEN - Copy')
+utils.kmap("v", "<C-v>", [["+p']], ':GEN - Paste')
 
 --          TOOLS                 --
-keymap('n', '<A-1>', [[:NvimTreeToggle<CR>]], {silent = true}) -- File Explorer : NvimTree
-keymap('n', '<A-2>', [[:SymbolsOutline<CR>]], {silent = true}) -- File Structure : Symbols Outline 
-keymap('n', '<A-3>', [[:lua require("neotest").summary.toggle()<CR>]], {silent = true}) -- File Structure : Symbols Outline 
-keymap('n', '<A-4>', [[:lua require("dapui").toggle()<CR>]], {silent = true}) -- File Structure : Symbols Outline 
+utils.kmap('n', '<A-1>', [[:NvimTreeToggle<CR>]], ':TOOLS - File Explorer')
+utils.kmap('n', '<A-2>', [[:SymbolsOutline<CR>]], ':TOOLS - Symbols')
+utils.kmap('n', '<A-3>', [[:lua require("neotest").summary.toggle()<CR>]], ':TOOLS - Tests')
+utils.kmap('n', '<A-4>', [[:lua require("dapui").toggle()<CR>]], ':TOOLS - Debug')
 
