@@ -22,6 +22,10 @@ require("lazy").setup({
   {"catppuccin/nvim", name = "catppuccin"},
   "tanvirtin/monokai.nvim",
   "AlexvZyl/nordic.nvim",
+  "lunarvim/darkplus.nvim",
+  "navarasu/onedark.nvim",
+  "ellisonleao/gruvbox.nvim",
+  "projekt0n/github-nvim-theme",
   -- UI Improvments
   "nvim-tree/nvim-tree.lua",
   {
