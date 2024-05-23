@@ -5,7 +5,7 @@ local utils = require("utils")
 if bufferline_status_ok then
   utils.kmap("n", "<A-Left>", [[:BufferLineCyclePrev<CR>]], ':BUFFER - Go to the buffer to the left')
   utils.kmap("n", "<A-Right>", [[:BufferLineCycleNext<CR>]], ':BUFFER - Go to the buffer to the right')
-  utils.kmap("n", "<Leader>c", [[:bdelete | bnext<CR>]], ':BUFFER - Close current buffer')
+  utils.kmap("n", "<Leader>c", '<cmd>:bp|sp|bn|bd<CR>', ':BUFFER - Close current buffer')
   utils.kmap("n", "<Leader>C", [[:BufferLineCloseOthers<CR>]], ':BUFFER - Close other buffers')
   utils.kmap("n", "<Leader>1", [[:BufferLineGoToBuffer 1<CR>]], ':BUFFER - Go to buffer 1')
   utils.kmap("n", "<Leader>2", [[:BufferLineGoToBuffer 2<CR>]], ':BUFFER - Go to buffer 2')
