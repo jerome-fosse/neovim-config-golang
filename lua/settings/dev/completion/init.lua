@@ -37,6 +37,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
     { name = 'path' },
+    { name = 'buffer' },
   }),
   formatting = {
     format = lspkind.cmp_format({
@@ -44,13 +45,13 @@ cmp.setup({
       maxwidth = 50,
       ellipsis_char = "...",
       before = function (entry, vim_item)
---        vim_item.menu = ({
---          nvim_lsp = "[LSP]",
---          nvim_lua = "[Nvim]",
---          luasnip = "[Snippet]",
---          buffer = "[Buffer]",
---          path = "[Path]",
---        })[entry.source.name]
+        vim_item.menu = ({
+          nvim_lsp = "[LSP]",
+          nvim_lua = "[Nvim]",
+          luasnip = "[Snippet]",
+          buffer = "[Buffer]",
+          path = "[Path]",
+        })[entry.source.name]
         return vim_item
       end,
     }),

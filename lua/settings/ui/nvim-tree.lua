@@ -7,7 +7,7 @@ nvim_tree.setup({
 	sort_by = "case_sensitive",
 	view = {
 		width = 30,
-    preserve_window_proportions = true,
+    preserve_window_proportions = false,
 	},
 	modified = {
 		enable = true,
@@ -33,6 +33,11 @@ nvim_tree.setup({
 			close = true,
 		},
 	},
+  actions = {
+    open_file = {
+--      resize_window = false,
+    },
+  },
 })
 
 local utils = require("utils")

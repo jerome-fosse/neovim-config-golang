@@ -36,12 +36,18 @@ lspconfig.gopls.setup {
   },
 }
 
+lspconfig.pbls.setup {
+  capabilities = capabilities,
+  cmd = { "pbls" },
+  filetypes = { "proto" },
+}
+
 lspconfig.terraformls.setup {
   capabilities = capabilities,
 }
 
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.tf", "*.tfvars", "*.go"},
+  pattern = {"*.tf", "*.tfvars", "*.go", "*.proto;"},
   callback = function()
     vim.lsp.buf.format()
   end,
