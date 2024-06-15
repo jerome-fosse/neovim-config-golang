@@ -90,6 +90,7 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons',
     }
   },
+  "Wansmer/symbol-usage.nvim",
   -- Tests plugins
   {
     "nvim-neotest/neotest",                           -- test plugin
