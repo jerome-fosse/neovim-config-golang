@@ -22,6 +22,7 @@ mason.setup({
 mason_lspconfig.setup({
   ensure_installed = {
     "lua_ls",
+--    "pbls",
     "gopls",
     "terraformls"
   },

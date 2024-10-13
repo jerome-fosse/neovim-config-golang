@@ -36,11 +36,11 @@ lspconfig.gopls.setup {
   },
 }
 
-lspconfig.pbls.setup {
-  capabilities = capabilities,
-  cmd = { "pbls" },
-  filetypes = { "proto" },
-}
+-- lspconfig.pbls.setup {
+--   capabilities = capabilities,
+--   cmd = { "pbls" },
+--   filetypes = { "proto" },
+-- }
 
 lspconfig.terraformls.setup {
   capabilities = capabilities,
