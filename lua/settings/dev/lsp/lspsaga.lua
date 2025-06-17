@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 lspsaga.setup({
+  symbol_in_winbar = {
+    enable = false,
+  },
   lightbulb = {
     enable = true,
     sign = true,
